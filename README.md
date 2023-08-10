@@ -44,3 +44,14 @@ k get all -n argocd
 **Now we see that the service type of "argocd-server" service has been changed from "ClusterIP" to "LoadBalancer".**
 
 ---
+
+### Login ArgoCD Web Interface
+
+username: admin
+password: "**please enter the following command in the terminal**"
+
+```shell
+k -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
+---
