@@ -55,3 +55,20 @@ k -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}
 ```
 
 ---
+
+### Create Application
+
+- ***SYNC POLICY***: Automatic
+- **PRUNE RESOURCES**: CHECKED, Argo will delete resources if they are no longer defined in Git
+- **SELF HEAL**: CHECKED, Argo will force the state defined in Git into the cluster when a deviation in the cluster is detected
+
+***DESTINATION***
+
+- **Cluster URL**: https://kubernetes.default.svc
+- **Namespace**: default
+
+***DIRECTORY***
+
+- **DIRECTORY RECURSE**: CHECKED
+
+---
