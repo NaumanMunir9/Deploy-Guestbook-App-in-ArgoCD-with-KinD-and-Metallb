@@ -23,4 +23,24 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
+```shell
+k get all -n argocd
+```
+
+---
+
+### Change the service type of "argocd-server" from "ClusterIP" to LoadBalancer
+
+For the argocd to utilize Metallb, we have to change the service type of "argocd-server" service from "ClusterIP" to "LoadBalancer"
+
+```shell
+k edit service argocd-server -n argocd
+```
+
+```shell
+k get all -n argocd
+```
+
+**Now we see that the service type of "argocd-server" service has been changed from "ClusterIP" to "LoadBalancer".**
+
 ---
